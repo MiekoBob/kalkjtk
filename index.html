@@ -9,8 +9,13 @@
 <body>
     <div class="calculator">
         <h2>Kalkulator ilości jtk bakterii</h2>
-        <button onclick="chooseCalculator('same')">Obliczanie z takim samym rozcieńczeniem</button>
-        <button onclick="chooseCalculator('different')">Obliczanie z różnymi rozcieńczeniami</button>
+        <label for="calculatorType">Wybierz rodzaj kalkulatora:</label>
+        <select id="calculatorType">
+            <option value="different">Kalkulator z różnymi rozcieńczeniami</option>
+            <option value="same">Kalkulator z takim samym rozcieńczeniem</option>
+        </select>
+        <div id="inputsContainer"></div>
+        <button onclick="calculate()">Oblicz</button>
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
