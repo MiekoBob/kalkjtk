@@ -20,9 +20,9 @@ function calculateSameDilution(smallestDilution) {
 }
 
 function calculateDifferentDilutions() {
-    let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
+    let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 2 do 3):"));
     if (isNaN(numberOfDilutions) || numberOfDilutions < 1 || numberOfDilutions > 3) {
-        alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 1 do 3).");
+        alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 2 do 3).");
         return;
     }
 
@@ -52,7 +52,7 @@ function calculateDifferentDilutions() {
 
     for (let i = 1; i <= numberOfDilutions; i++) {
         let dilution = i * Math.pow(10, i);
-        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${dilution}:`));
+        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${i * Math.pow(10, i) / i }:`));
         if (isNaN(plates)) {
             alert("Wprowadź prawidłową liczbę płytek.");
             return;
