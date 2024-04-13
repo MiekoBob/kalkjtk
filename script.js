@@ -36,7 +36,7 @@ function calculateSameDilution() {
         }
 
         let result = colonies * dilution;
-        document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)}`;
+        document.getElementById('result').innerText = `Wynik: ${result.toPrecision(7)}`;
     });
     document.getElementById('inputsContainer').appendChild(calculateButton);
 }
@@ -68,5 +68,5 @@ function calculateDifferentDilutions() {
     }
 
     let result = totalColonies / totalPlates;
-    document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)}`;
+    document.getElementById('result').innerText = `Wynik: ${result.toPrecision(7)}`;
 }
