@@ -22,7 +22,7 @@ function calculateSameDilution() {
     }
 
     let result = colonies * dilution;
-    document.getElementById('result').innerText = `Liczba jednostek kolonii bakterii: ${result.toFixed(2)}`;
+   document.getElementById('calculateButton').addEventListener('click', calculate);
 }
 
 function calculateDifferentDilutions() {
@@ -52,5 +52,5 @@ function calculateDifferentDilutions() {
     }
 
     let result = totalColonies / totalPlates;
-    document.getElementById('result').innerText = `Wynik: ${result.toFixed(2)}`;
+    document.getElementById('calculateButton').addEventListener('click', calculate);
 }
