@@ -1,8 +1,10 @@
-function chooseCalculator(type) {
-    if (type === "same") {
-        calculateSameDilution();
-    } else if (type === "different") {
+function calculate() {
+    let calculatorType = document.getElementById('calculatorType').value;
+
+    if (calculatorType === "different") {
         calculateDifferentDilutions();
+    } else if (calculatorType === "same") {
+        calculateSameDilution();
     }
 }
 
@@ -24,30 +26,29 @@ function calculateSameDilution() {
 }
 
 function calculateDifferentDilutions() {
-    let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
-    if (numberOfDilutions < 1 || numberOfDilutions > 3 || isNaN(numberOfDilutions)) {
-        alert("Nieprawidłowa ilość różnych rozcieńczeń.");
-        return;
-    }
-
-    let smallestDilution = parseInt(prompt("Podaj najmniejsze używane rozcieńczenie (10 lub 100):"));
-    if (smallestDilution !== 10 && smallestDilution !== 100 || isNaN(smallestDilution)) {
-        alert("Najmniejsze rozcieńczenie może być tylko 10 lub 100.");
+    let differentDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
+    if (isNaN(differentDilutions) || differentDilutions < 1 || differentDilutions > 3) {
+        alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 1 do 3).");
         return;
     }
 
     let totalColonies = 0;
     let totalPlates = 0;
 
-    for (let i = 1; i <= numberOfDilutions; i++) {
-        let dilution = smallestDilution * Math.pow(10, i - 1);
-        let platesWithDilution = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${dilution}:`));
-        if (isNaN(platesWithDilution)) {
+    for (let i = 1; i <= differentDilutions; i++) {
+        let dilution = Math.pow(10, i);
+        let colonies = parseInt(prompt(`Podaj sumę kolonii w płytkach z rozcieńczeniem R${dilution}:`));
+        if (isNaN(colonies)) {
+            alert("Wprowadź prawidłową sumę kolonii.");
+            return;
+        }
+        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${dilution}:`));
+        if (isNaN(plates)) {
             alert("Wprowadź prawidłową liczbę płytek.");
             return;
         }
-        totalColonies += platesWithDilution * dilution;
-        totalPlates += platesWithDilution;
+        totalColonies += colonies;
+        totalPlates += plates;
     }
 
     let result = totalColonies / totalPlates;
