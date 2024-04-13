@@ -1,12 +1,8 @@
-function chooseCalculator() {
-    let choice = prompt("Wybierz opcję:\n1. Obliczanie z takim samym rozcieńczeniem\n2. Obliczanie z różnymi rozcieńczeniami");
-
-    if (choice === "1") {
+function chooseCalculator(type) {
+    if (type === "same") {
         calculateSameDilution();
-    } else if (choice === "2") {
+    } else if (type === "different") {
         calculateDifferentDilutions();
-    } else {
-        alert("Nieprawidłowy wybór. Wybierz opcję 1 lub 2.");
     }
 }
 
@@ -28,7 +24,7 @@ function calculateSameDilution() {
 }
 
 function calculateDifferentDilutions() {
-   let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
+    let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
     if (numberOfDilutions < 1 || numberOfDilutions > 3 || isNaN(numberOfDilutions)) {
         alert("Nieprawidłowa ilość różnych rozcieńczeń.");
         return;
@@ -57,5 +53,3 @@ function calculateDifferentDilutions() {
     let result = totalColonies / totalPlates;
     document.getElementById('result').innerText = `Wynik: ${result.toFixed(2)}`;
 }
-
-chooseCalculator();
