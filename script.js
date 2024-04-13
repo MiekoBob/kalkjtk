@@ -6,36 +6,34 @@ function calculate() {
     if (calculatorType === "different") {
         calculateDifferentDilutions();
     } else if (calculatorType === "same") {
-        calculateSameDilution();
+        let smallestDilution = parseInt(prompt("Podaj najmniejsze użyte rozcieńczenie (10 lub 100):"));
+        if (isNaN(smallestDilution) || (smallestDilution !== 10 && smallestDilution !== 100)) {
+            alert("Najmniejsze rozcieńczenie może być 10 lub 100.");
+            return;
+        }
+        calculateSameDilution(smallestDilution);
     }
 }
 
-function calculateSameDilution() {
+function calculateSameDilution(smallestDilution) {
     let coloniesInput = document.createElement('input');
     coloniesInput.type = 'number';
     coloniesInput.placeholder = 'Podaj liczbę kolonii wyrosłych';
     coloniesInput.className = 'input-field';
     document.getElementById('inputsContainer').appendChild(coloniesInput);
 
-    let dilutionInput = document.createElement('input');
-    dilutionInput.type = 'number';
-    dilutionInput.placeholder = 'Podaj współczynnik rozcieńczenia';
-    dilutionInput.className = 'input-field';
-    document.getElementById('inputsContainer').appendChild(dilutionInput);
-
     let calculateButton = document.createElement('button');
     calculateButton.textContent = 'Oblicz';
     calculateButton.className = 'calculate-button';
     calculateButton.addEventListener('click', function() {
         let colonies = parseInt(coloniesInput.value);
-        let dilution = parseInt(dilutionInput.value);
 
-        if (isNaN(colonies) || isNaN(dilution)) {
-            alert("Wprowadź prawidłowe wartości.");
+        if (isNaN(colonies)) {
+            alert("Wprowadź prawidłową liczbę kolonii.");
             return;
         }
 
-        let result = colonies * dilution;
+        let result = colonies * smallestDilution;
         document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)}`;
     });
     document.getElementById('inputsContainer').appendChild(calculateButton);
