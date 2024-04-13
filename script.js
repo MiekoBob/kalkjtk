@@ -70,7 +70,3 @@ function calculateDifferentDilutions() {
     let result = totalColonies / totalPlates;
     document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)} jtk`;
 }
-
-    let result = totalColonies / totalPlates;
-    document.getElementById('result').innerText = `Wynik: ${result.toPrecision(7)}`;
-}
