@@ -52,7 +52,7 @@ function calculateDifferentDilutions() {
 
     for (let i = 1; i <= numberOfDilutions; i++) {
         let dilution = i * Math.pow(10, i);
-        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${dilution}:`));
+        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${i * Math.pow(10,i))/}:`));
         if (isNaN(plates)) {
             alert("Wprowadź prawidłową liczbę płytek.");
             return;
