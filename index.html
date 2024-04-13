@@ -9,11 +9,8 @@
 <body>
     <div class="calculator">
         <h2>Kalkulator ilości jtk bakterii</h2>
-        <label for="colonies">Liczba kolonii wyrosłych:</label>
-        <input type="number" id="colonies" placeholder="Liczba kolonii wyrosłych">
-        <label for="dilution">Współczynnik rozcieńczenia:</label>
-        <input type="number" id="dilution" placeholder="Współczynnik rozcieńczenia">
-        <button onclick="calculate()">Oblicz</button>
+        <button onclick="chooseCalculator('same')">Obliczanie z takim samym rozcieńczeniem</button>
+        <button onclick="chooseCalculator('different')">Obliczanie z różnymi rozcieńczeniami</button>
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
