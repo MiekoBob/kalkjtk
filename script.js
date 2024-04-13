@@ -11,20 +11,34 @@ function calculate() {
 }
 
 function calculateSameDilution() {
-    let colonies = parseInt(prompt("Podaj liczbę kolonii wyrosłych:"));
-    if (isNaN(colonies)) {
-        alert("Wprowadź prawidłową liczbę kolonii.");
-        return;
-    }
+    let coloniesInput = document.createElement('input');
+    coloniesInput.type = 'number';
+    coloniesInput.placeholder = 'Podaj liczbę kolonii wyrosłych';
+    coloniesInput.className = 'input-field';
+    document.getElementById('inputsContainer').appendChild(coloniesInput);
 
-    let dilution = parseInt(prompt("Podaj współczynnik rozcieńczenia:"));
-    if (isNaN(dilution)) {
-        alert("Wprowadź prawidłowy współczynnik rozcieńczenia.");
-        return;
-    }
+    let dilutionInput = document.createElement('input');
+    dilutionInput.type = 'number';
+    dilutionInput.placeholder = 'Podaj współczynnik rozcieńczenia';
+    dilutionInput.className = 'input-field';
+    document.getElementById('inputsContainer').appendChild(dilutionInput);
 
-    let result = colonies * dilution;
-    document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)}`;
+    let calculateButton = document.createElement('button');
+    calculateButton.textContent = 'Oblicz';
+    calculateButton.className = 'calculate-button';
+    calculateButton.addEventListener('click', function() {
+        let colonies = parseInt(coloniesInput.value);
+        let dilution = parseInt(dilutionInput.value);
+
+        if (isNaN(colonies) || isNaN(dilution)) {
+            alert("Wprowadź prawidłowe wartości.");
+            return;
+        }
+
+        let result = colonies * dilution;
+        document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)}`;
+    });
+    document.getElementById('inputsContainer').appendChild(calculateButton);
 }
 
 function calculateDifferentDilutions() {
