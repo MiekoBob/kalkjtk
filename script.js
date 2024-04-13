@@ -42,56 +42,31 @@ function calculateSameDilution() {
 }
 
 function calculateDifferentDilutions() {
-    let differentDilutionsInput = document.createElement('input');
-    differentDilutionsInput.type = 'number';
-    differentDilutionsInput.placeholder = 'Podaj ilość różnych rozcieńczeń (od 1 do 3)';
-    differentDilutionsInput.className = 'input-field';
-    document.getElementById('inputsContainer').appendChild(differentDilutionsInput);
+    let differentDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 1 do 3):"));
+    if (isNaN(differentDilutions) || differentDilutions < 1 || differentDilutions > 3) {
+        alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 1 do 3).");
+        return;
+    }
 
-    let calculateButton = document.createElement('button');
-    calculateButton.textContent = 'Oblicz';
-    calculateButton.className = 'calculate-button';
-    calculateButton.addEventListener('click', function() {
-        let differentDilutions = parseInt(differentDilutionsInput.value);
+    let totalColonies = 0;
+    let totalPlates = 0;
 
-        if (isNaN(differentDilutions) || differentDilutions < 1 || differentDilutions > 3) {
-            alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 1 do 3).");
+    for (let i = 1; i <= differentDilutions; i++) {
+        let dilution = Math.pow(10, i);
+        let colonies = parseInt(prompt(`Podaj sumę kolonii w płytkach z rozcieńczeniem R${dilution}:`));
+        if (isNaN(colonies)) {
+            alert("Wprowadź prawidłową sumę kolonii.");
             return;
         }
-
-        let totalColonies = 0;
-        let totalPlates = 0;
-
-        for (let i = 1; i <= differentDilutions; i++) {
-            let dilution = Math.pow(10, i);
-            let coloniesInput = document.createElement('input');
-            coloniesInput.type = 'number';
-            coloniesInput.placeholder = `Podaj sumę kolonii w płytkach z rozcieńczeniem R${dilution}`;
-            coloniesInput.className = 'input-field';
-            document.getElementById('inputsContainer').appendChild(coloniesInput);
-            let colonies = parseInt(coloniesInput.value);
-            if (isNaN(colonies)) {
-                alert("Wprowadź prawidłową sumę kolonii.");
-                return;
-            }
-
-            let platesInput = document.createElement('input');
-            platesInput.type = 'number';
-            platesInput.placeholder = `Podaj liczbę płytek z rozcieńczeniem R${dilution}`;
-            platesInput.className = 'input-field';
-            document.getElementById('inputsContainer').appendChild(platesInput);
-            let plates = parseInt(platesInput.value);
-            if (isNaN(plates)) {
-                alert("Wprowadź prawidłową liczbę płytek.");
-                return;
-            }
-
-            totalColonies += colonies;
-            totalPlates += plates;
+        let plates = parseInt(prompt(`Podaj liczbę płytek z rozcieńczeniem R${dilution}:`));
+        if (isNaN(plates)) {
+            alert("Wprowadź prawidłową liczbę płytek.");
+            return;
         }
+        totalColonies += colonies;
+        totalPlates += plates;
+    }
 
-        let result = totalColonies / totalPlates;
-        document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)} jtk`;
-    });
-    document.getElementById('inputsContainer').appendChild(calculateButton);
+    let result = totalColonies / totalPlates;
+    document.getElementById('result').innerText = `Wynik: ${result.toExponential(5)} jtk`;
 }
