@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator ilości jtk bakterii</title>
+    <title>Kalkulator Bakterii</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <h2>Kalkulator ilości jtk bakterii</h2>
-        <label for="calculatorType">Wybierz rodzaj kalkulatora:</label>
-        <select id="calculatorType">
-            <option value="different">Kalkulator z różnymi rozcieńczeniami</option>
-            <option value="same">Kalkulator z takim samym rozcieńczeniem</option>
-        </select>
-        <div id="inputsContainer"></div>
-        <button id="calculateButton">Oblicz</button>
-        <div id="result" class="result"></div>
-        <div id="author"> by Mieszko Kin </div>
+
+<div id="container" class="calculator">
+    <label for="calculatorType">Wybierz rodzaj kalkulatora:</label>
+    <select id="calculatorType">
+        <option value="different">Różne rozcieńczenia</option>
+        <option value="same">To samo rozcieńczenie</option>
+    </select>
+    <div id="inputsContainer"></div>
+    <button id="calculateButton">Oblicz</button>
+    <div id="result" class="result"></div>
+    <div id="author-container">
+        <span id="author">by Mieszko Kin</span>
+        <img src="path/to/your/image.png" alt="Opis obrazu">
     </div>
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
