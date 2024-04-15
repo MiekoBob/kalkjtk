@@ -1,3 +1,29 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const currentDate = new Date();
+    const christmasStart = new Date(currentDate.getFullYear(), 11, 1); // 1 grudnia bieżącego roku
+    const christmasEnd = new Date(currentDate.getFullYear(), 11, 6); // 6 stycznia następnego roku
+
+    const christmasImage = 'bakteryjkav1swiateczna.png';
+    const defaultImage = 'bakteryjkav1.png';
+
+    // Sprawdzenie, czy obecna data mieści się w okresie świąt Bożego Narodzenia
+    if (currentDate >= christmasStart && currentDate <= christmasEnd) {
+        // Jeśli jesteśmy w okresie świąt, zmień obrazek na ten świąteczny
+        changeImage(christmasImage);
+    } else {
+        // W przeciwnym razie użyj obrazka domyślnego
+        changeImage(defaultImage);
+    }
+});
+
+function changeImage(image) {
+    const imageElement = document.getElementById('christmasImage');
+    if (imageElement) {
+        imageElement.src = image;
+    }
+}
+
+
 document.getElementById('calculateButton').addEventListener('click', calculate);
 
 function calculate() {
