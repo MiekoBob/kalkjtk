@@ -4,18 +4,18 @@ function calculate() {
     let calculatorType = document.getElementById('calculatorType').value;
 
     if (calculatorType === "different") {
-        calculateDifferentDilutions();
-    } else if (calculatorType === "same") {
         let smallestDilution = parseInt(prompt("Podaj najmniejsze użyte rozcieńczenie (10 lub 100):"));
         if (isNaN(smallestDilution) || (smallestDilution !== 10 && smallestDilution !== 100)) {
             alert("Najmniejsze rozcieńczenie może być 10 lub 100.");
             return;
         }
-        calculateSameDilution(smallestDilution);
+        calculateDifferentDilutions(smallestDilution);
+    } else if (calculatorType === "same") {
+        calculateSameDilution();
     }
 }
 
-function calculateSameDilution(smallestDilution) {
+function calculateSameDilution() {
     let coloniesInput = parseInt(prompt("Podaj liczbę kolonii wyrosłych:"));
     if (isNaN(coloniesInput)) {
         alert("Wprowadź prawidłową liczbę kolonii.");
@@ -32,7 +32,7 @@ function calculateSameDilution(smallestDilution) {
     alert(`Wynik: ${result}`);
 }
 
-function calculateDifferentDilutions() {
+function calculateDifferentDilutions(smallestDilusion) {
     let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 2 do 3):"));
     if (isNaN(numberOfDilutions) || numberOfDilutions < 1 || numberOfDilutions > 3) {
         alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 2 do 3).");
