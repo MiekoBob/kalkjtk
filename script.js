@@ -29,7 +29,7 @@ function calculateSameDilution() {
     }
 
     let result = coloniesInput * dilutionInput;
-    alert(`Wynik: ${result}`);
+    document.getElementById('result').innerText = `Wynik: ${result.toExponential(7)}`;
 }
 
 function calculateDifferentDilutions(smallestDilusion) {
