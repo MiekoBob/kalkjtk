@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentDate = new Date();
-  const christmasStart = new Date(currentDate.getFullYear(), 11, 10); // 10 grudnia bieżącego roku
-    const christmasEnd = new Date(currentDate.getFullYear(), 11, 18); // 18 grudnia bieżącego roku
+  const christmasStart = new Date(currentDate.getFullYear(), 3, 10); // 10 grudnia bieżącego roku
+    const christmasEnd = new Date(currentDate.getFullYear(), 3, 18); // 18 grudnia bieżącego roku
     const christmasImage = 'bakteryjkav1swiateczna.png';
     const defaultImage = 'bakteryjkav1.png';
 
