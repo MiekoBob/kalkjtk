@@ -32,16 +32,10 @@ function calculateSameDilution() {
     document.getElementById('result').innerText = `Wynik: ${result.toExponential(7)}`;
 }
 
-function calculateDifferentDilutions(smallestDilusion) {
+function calculateDifferentDilutions(smallestDilution) {
     let numberOfDilutions = parseInt(prompt("Podaj ilość różnych rozcieńczeń (od 2 do 3):"));
     if (isNaN(numberOfDilutions) || numberOfDilutions < 1 || numberOfDilutions > 3) {
         alert("Wprowadź prawidłową ilość różnych rozcieńczeń (od 2 do 3).");
-        return;
-    }
-
-    let smallestDilution = parseInt(prompt("Podaj najmniejsze użyte rozcieńczenie (10 lub 100):"));
-    if (isNaN(smallestDilution) || (smallestDilution !== 10 && smallestDilution !== 100)) {
-        alert("Najmniejsze rozcieńczenie może być 10 lub 100.");
         return;
     }
 
