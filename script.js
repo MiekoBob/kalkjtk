@@ -16,7 +16,20 @@ function calculate() {
 }
 
 function calculateSameDilution(smallestDilution) {
-    // Kod dla kalkulatora z tymi samymi rozcieńczeniami
+    let coloniesInput = parseInt(prompt("Podaj liczbę kolonii wyrosłych:"));
+    if (isNaN(coloniesInput)) {
+        alert("Wprowadź prawidłową liczbę kolonii.");
+        return;
+    }
+
+    let dilutionInput = parseInt(prompt("Podaj współczynnik rozcieńczenia:"));
+    if (isNaN(dilutionInput)) {
+        alert("Wprowadź prawidłowy współczynnik rozcieńczenia.");
+        return;
+    }
+
+    let result = coloniesInput * dilutionInput;
+    alert(`Wynik: ${result}`);
 }
 
 function calculateDifferentDilutions() {
